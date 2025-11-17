@@ -1,114 +1,196 @@
 body {
-  margin: 0;
-  height: 100vh;
-  overflow: hidden;
-  font-family: 'Segoe UI', sans-serif;
+  margin: 0px;
 }
 
-/* 50/50 layout */
 .about-container {
   display: flex;
-  height: 100vh;
+  flex-direction: row;
+  height: auto;
+  min-height: 100vh;
 }
 
-/* LEFT SIDE (TEXT SECTION) */
 .left-section {
-  flex: 1;
-  padding: 70px;
+  flex-grow: 0.7;
+  box-shadow: none;
+
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  animation: fadeSlide 0.9s ease forwards;
 }
 
-.left-section h1 {
-  font-size: 40px;
-  margin: 0 0 10px 0;
+.text-box h1{
+  font-size: 57px;
+  font-family: "Playfair Display", serif;
+  font-weight: 100;
+  font-style: normal;
+  margin-bottom: 0px;
+}
+
+.text-box .txt {
+  font-size: 12px;
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+  font-family: serif;
   font-weight: 600;
+  /* letter-spacing: 1px; */
+  top: -17px;
+ 
 }
 
-.left-section p {
-  margin: 5px 0 15px 0;
-  font-size: 20px;
-  opacity: 0.8;
-}
-
-.left-section h2 {
-  margin-top: 0px;
+.text-box .ori {
+  font-family: "Montserrat", sans-serif;
   font-size: 26px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  color: rgb(167, 153, 40);
 }
 
-/* BUTTONS */
+.start-text {
+  font-size: 40px;
+  font-family: "Figtree", sans-serif;
+  margin-top: 10px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.start-sub {
+  font-family: "Figtree", sans-serif;
+  font-weight: 500;
+  margin-top: 0px;
+  font-size: 28px;
+}
+
 .btn-container {
   margin-top: 15px;
 }
 
-.start-btn,
-.no-btn {
-  width: 430px;
-  padding: 19px;
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  border: 2px solid #9b0e1a; /* screenshot red */
-  transition: 0.3s ease;
+.btn-container .start-btn {
+  margin-bottom: 0px;
 }
 
-/* Big red claim button style */
+.start-btn,
+.no-btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  max-width: 449px;
+  padding: 20px 30px;
+  border-radius: 12px;
+  font-size: 17px;
+  cursor: pointer;
+  border: 2px solid rgb(167, 153, 40);
+  font-weight: 500;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 .start-btn {
-  background: #9b0e1a;
-  color: white;
-  font-weight: 600;
+  background: rgb(167, 153, 40);
+  color: #fff;
 }
 
 .start-btn:hover {
-  background: #7d0b15;
+  background: rgba(167, 152, 40, 0.822);
 }
 
-/* Thin bordered button */
 .no-btn {
-  background: white;
-  color: #9b0e1a;
-  font-weight: 600;
+  background: #fff;
+  color: rgb(167, 153, 40);
 }
 
 .no-btn:hover {
-  background: #fbeaea;
+  background: #f9fbea;
 }
 
-/* RIGHT SIDE (IMAGE SECTION) */
+/* RIGHT SECTION (IMAGE) */
 .right-section {
-  flex: 1;
-  height: 100vh;
-  overflow: hidden;
+  flex-grow: 1.5;
+  display: block;
+  background-image: url("images/hair.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.right-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: fadeIn 1.2s ease-in-out forwards;
+/* Add responsive design for small screens */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column-reverse;
+    min-height: auto;
+  }
+
+  .left-section {
+    flex-grow: 0;
+    padding: 40px 0px;
+    min-height: auto;
+    justify-content: center;
+  }
+
+  .text-box h1 {
+    font-size: 46px;
+  }
+
+
+  .text-box .txt {
+    font-size: 11px;
+    margin-left: 4px;
+  }
+
+  .text-box .ori {
+    font-size: 20px;
+  }
+
+  .start-text {
+    font-size: 27px;
+  }
+
+  .start-sub {
+    font-size: 23px;
+  }
+
+  .start-btn,
+  .no-btn {
+    max-width: 100%;
+    padding: 16px 37px;
+    font-size: 15px;
+  }
+
+  .right-section {
+    flex-grow: 0;
+    min-height: 350px;
+    height: 350px;
+  }
 }
 
-/* ANIMATIONS */
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
+@media (max-width: 480px) {
+  .left-section {
+    padding: 30px 6px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(1.05);
+  .text-box h1 {
+    font-size: 28px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .text-box .txt {
+    font-size: 9px;
+    margin-left: 5px;
+  }
+
+  .text-box .ori {
+    font-size: 16px;
+  }
+
+  .start-text {
+    font-size: 20px;
+  }
+
+  .start-sub {
+    font-size: 18px;
+  }
+
+  .right-section {
+    min-height: 280px;
+    height: 280px;
   }
 }
