@@ -105,13 +105,13 @@ html {
 
   display: flex;
   align-items: flex-end;
-  
 }
 
 .about-container .content {
   width: 100%;
   max-width: 670px;
-  backdrop-filter: blur(2px); /* glass effect & readability*/
+  backdrop-filter: blur(2px);
+  /* glass effect & readability*/
   margin: 35px;
 }
 
@@ -141,12 +141,13 @@ html {
 
 /*Curls*/
 main {
-   margin: 40px 35px;
+  margin: 40px 35px;
 }
+
 .curl-pattern {
   max-width: 600px;
   line-height: 1.5;
-  font-family: "Figtree", sans-serif; 
+  font-family: "Figtree", sans-serif;
 }
 
 .curl-pattern h1 {
@@ -161,7 +162,7 @@ main {
   max-width: 400px;
 }
 
-.curl-info  h3{
+.curl-info h3 {
   font-size: 27px;
 }
 
@@ -177,14 +178,14 @@ main {
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   cursor: pointer;
 }
 
 
 .curl-card:hover {
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -221,6 +222,68 @@ main {
   font-size: 15px;
   font-family: "Figtree", sans-serif;
   line-height: 1.55;
+}
+
+/*Herbs*/
+.herbs-container {
+  height: 73vh;
+  background-image: url("images/seeds.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.herbs-container .seeds {
+  width: 100%;
+  height: 100%;
+  background: rgba(138, 138, 138, 0.4);
+  /* optional readability layer */
+  backdrop-filter: blur(2px);
+  /* glass effect */
+  border-radius: 10px;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seed-text {
+  width: 100%;
+  max-width: 700px;
+}
+
+.seed-content h1 {
+  font-size: 45px;
+  font-family: "Figtree", sans-serif;
+}
+
+.seed-content p {
+   font-family: "Figtree", sans-serif;
+   font-size: 19px;
+   margin-bottom: 30px;
+   margin-top: 12px;
+   
+}
+
+.seed-btn {
+  text-decoration: none;
+  width: 100%;
+  max-width: 49px;
+  padding: 12px 30px;
+  border-radius: 12px;
+  font-size: 20px;
+  font-family: "Figtree", sans-serif;
+  cursor: pointer;
+  border: 2px solid rgba(204, 141, 59, 0.801);
+  background-color: rgb(209, 142, 55);
+  font-weight: 500;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.seed-btn:hover {
+  background: rgba(209, 142, 55, 0.959);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 
