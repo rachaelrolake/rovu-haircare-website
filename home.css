@@ -37,7 +37,7 @@ html {
   font-family: "Playfair Display", serif;
   text-decoration: none;
   color: #000;
-  font-size: 26px;
+  font-size: 27px;
 }
 
 /* Menu */
@@ -98,25 +98,21 @@ html {
 
 .about-container {
   height: 93vh;
-  background-image: url("images/homeimg.svg");
+  background-image: url("images/about.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   display: flex;
   align-items: flex-end;
-  padding: 20px;
+  
 }
 
 .about-container .content {
   width: 100%;
   max-width: 670px;
-  /* limit width */
-  backdrop-filter: blur(6px);
-  /* glass effect */
-  border-radius: 10px;
-  padding: 20px;
-
+  backdrop-filter: blur(2px); /* glass effect & readability*/
+  margin: 35px;
 }
 
 .growth-title {
@@ -132,13 +128,99 @@ html {
   letter-spacing: 0em;
   line-height: 1;
   text-transform: none;
-  margin-top: 17px;
+  margin-top: 19px;
 }
 
 .growth-description {
   font-size: 19px;
   font-family: "Figtree", sans-serif;
-  margin-top: 17px;
+  margin-top: 18px;
+}
+
+
+
+/*Curls*/
+main {
+   margin: 40px 35px;
+}
+.curl-pattern {
+  max-width: 600px;
+  line-height: 1.5;
+  font-family: "Figtree", sans-serif; 
+}
+
+.curl-pattern h1 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+
+
+.curl-info {
+  width: 100%;
+  max-width: 400px;
+}
+
+.curl-info  h3{
+  font-size: 27px;
+}
+
+
+.curl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.curl-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+
+.curl-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+
+.curl-img {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+/* Smooth image zoom on hover */
+.curl-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Image hover */
+.curl-card:hover .curl-img img {
+  transform: scale(1.08);
+}
+
+.curl-info {
+  padding: 20px;
+}
+
+.curl-info h3 {
+  font-size: 22px;
+  font-family: "Figtree", sans-serif;
+  margin-bottom: 10px;
+}
+
+.curl-info p {
+  font-size: 15px;
+  font-family: "Figtree", sans-serif;
+  line-height: 1.55;
 }
 
 
@@ -146,7 +228,8 @@ html {
 
 
 
-/* Responsive */
+/* Responsiveness*/
+/*navbar*/
 @media screen and (max-width: 900px) {
   .hamburger {
     display: flex;

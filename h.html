@@ -1,363 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hairess - Natural Hair Care</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f8f9fa;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-            padding: 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        .logo:hover {
-            color: #a8d5ba;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-item {
-            margin-left: 30px;
-        }
-
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            padding: 10px 15px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-link:hover {
-            background-color: rgb(255, 255, 255);
-            color: #a8d5ba;
-            transform: translateY(-2px);
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-link:hover::before {
-            left: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-
-        /* Content area to show the navbar is working */
-        .content {
-            margin-top: 70px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 60px 0;
-            background: linear-gradient(135deg, #a8d5ba 0%, #7fb069 100%);
-            border-radius: 15px;
-            color: #2c5530;
-            margin-bottom: 40px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Mobile Styles */
-        @media screen and (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 20px 0;
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-item {
-                margin: 10px 0;
-            }
-
-            .nav-link {
-                padding: 15px 20px;
-                display: block;
-                font-size: 18px;
-                margin: 0 20px;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-                padding: 0 20px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .nav-container {
-                padding: 0 15px;
-            }
-
-            .logo {
-                font-size: 24px;
-            }
-
-            .hero {
-                padding: 40px 20px;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Additional sections for demonstration */
-        .section {
-            padding: 60px 0;
-            margin: 40px 0;
-        }
-
-        .section h2 {
-            color: #2c5530;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .section p {
-            color: #666;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">hairess</a>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#hair-types" class="nav-link">Hair Types</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#herbs-benefits" class="nav-link">Herbs & Benefits</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#diy-recipes" class="nav-link">DIY Recipes</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tips" class="nav-link">Tips</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+<section class="curl-grid">
+            <div class="curl-preview">
+                <div class="picture-row">
+                    <img src="images/waves&loose.png" alt="Waves & Loose Curl">
+                </div>
+                <div class="curl-info">
+                    <h3>Waves & lose Curls</h3>
+                    <p>
+                        A wavy or loose S-shaped curl pattern thrives with definoition and light hold.
+                        Weightless moisture is key to encouraging movement and volume without weighing down curls.</p>
+                </div>
             </div>
-        </div>
-    </nav>
 
-    <div class="content">
-        <div class="hero">
-            <h1>Welcome to Hairess</h1>
-            <p>Discover natural hair care solutions with herbs, DIY recipes, and expert tips for healthy, beautiful hair.</p>
-        </div>
+            <div class="curl-preview">
+                <div class="picture-row">
+                    <img src="images/spiral.png" alt="Spiral Curl">
+                </div>
+                <div class="curl-info">
+                    <h3>Spiral</h3>
+                    <p>A uniform ringlet with an S-shaped pattern is indicative of this curl type. To help improve
+                        consistency, definition, and bounce, spiral curls require gentle care and lightweight moiisture
+                        balance.</p>
+                </div>
+            </div>
 
-        <section id="hair-types" class="section">
-            <h2>Hair Types</h2>
-            <p>Understanding your hair type is the first step to proper hair care. Learn about different hair textures, porosity levels, and how to identify your unique hair characteristics.</p>
+            <div class="curl-preview">
+                <div class="picture-row">
+                    <img src="images/tight.png" alt="Tight Curl">
+                </div>
+                <div class="curl-info">
+                    <h3>Tight</h3>
+                    <p>This corkscrew-like curl grows in a C-shape pattern. A healthy dose od replenishing moisture and
+                        essential nutrient is key to maintaining elasticity and definition.</p>
+                </div>
+            </div>
+
+            <div class="curl-preview">
+                <div class="picture-row">
+                    <img src="images/coily.png" alt="Coily Curl">
+                </div>
+                <div class="curl-info">
+                    <h3>Coily</h3>
+                    <p>The tightest curl type is marked by a close-knit Z-shape. Rich hydration, restorative
+                        nourishment, and strengthening products with slip that condition, protect, and elongate are what
+                        this curl pattern craves.</p>
+                </div>
+            </div>
+
         </section>
-
-        <section id="herbs-benefits" class="section">
-            <h2>Herbs & Benefits</h2>
-            <p>Explore the power of natural herbs for hair health. From rosemary for growth to aloe vera for moisture, discover how nature can transform your hair care routine.</p>
-        </section>
-
-        <section id="diy-recipes" class="section">
-            <h2>DIY Recipes</h2>
-            <p>Create your own natural hair treatments at home with our easy-to-follow recipes. Save money while nourishing your hair with ingredients from your kitchen.</p>
-        </section>
-
-        <section id="tips" class="section">
-            <h2>Tips</h2>
-            <p>Get expert advice on hair care techniques, styling methods, and maintenance routines that will keep your hair healthy and looking its best.</p>
-        </section>
-
-        <section id="about" class="section">
-            <h2>About</h2>
-            <p>Learn about our mission to promote natural hair care and help people embrace their natural beauty through sustainable, healthy hair practices.</p>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>Have questions or need personalized hair care advice? Get in touch with our team of natural hair care experts.</p>
-        </section>
-    </div>
-
-    <script>
-        // Mobile menu toggle functionality
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a nav link
-        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }));
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'linear-gradient(135deg, #1a3a1e 0%, #2d5233 100%)';
-            } else {
-                navbar.style.background = 'linear-gradient(135deg, #2c5530 0%, #4a7c59 100%)';
-            }
-        });
-    </script>
-</body>
-</html>
